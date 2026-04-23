@@ -9,14 +9,15 @@ const createDrink = (type) => {
 
 const prepareOrder = (drink) => {
   console.log(`Preparing ${drink.type} to the kitchen`);
-  return Math.floor(Math.random() * 1000);
+  const orderId = Math.floor(Math.random() * 1000);
+  return orderId;
 };
 
 // step 3: payment
 const processPayment = (ticketNumber, amount) => {
   if (!ticketNumber) throw new Error("No ticket number provided");
 
-  console.log(`Payment of ${amount}SEK  received for ticket #${ticketNumber}`);
+  console.log(`Payment of ${amount} SEK  received for ticket #${ticketNumber}`);
   return true;
 };
 
@@ -26,3 +27,7 @@ const orderDrink = (drinkType) => {
   const payment = processPayment(ticket, drink.price);
   return payment;
 };
+
+orderDrink("latte");
+
+export { createDrink, prepareOrder, processPayment, orderDrink };
