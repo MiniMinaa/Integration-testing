@@ -1,3 +1,4 @@
+const { processPayment } = require("./payment.js");
 //step 1: creating a drink
 
 const createDrink = (type) => {
@@ -13,21 +14,19 @@ const prepareOrder = (drink) => {
   return orderId;
 };
 
-// step 3: payment
-const processPayment = (ticketNumber, amount) => {
-  if (!ticketNumber) throw new Error("No ticket number provided");
-
-  console.log(`Payment of ${amount} SEK  received for ticket #${ticketNumber}`);
-  return true;
-};
-
 const orderDrink = (drinkType) => {
   const drink = createDrink(drinkType);
   const ticket = prepareOrder(drink);
   const payment = processPayment(ticket, drink.price);
   return payment;
 };
+module.exports = {
+  createDrink,
+  prepareOrder,
+  orderDrink,
+};
 
+/*
 orderDrink("latte");
 
-export { createDrink, prepareOrder, processPayment, orderDrink };
+export { createDrink, prepareOrder, processPayment, orderDrink };*/
