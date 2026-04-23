@@ -1,4 +1,4 @@
-const { processPayment } = require("../../src/coffeshop.js");
+const { processPayment } = require("../../src/payment.js");
 
 test("throws error if no ticket number", () => {
   expect(() => processPayment(null, 45)).toThrow("No ticket number provided");
